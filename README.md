@@ -18,3 +18,16 @@ The following are our core user stories:
 - [ ] User can communicate with other loners in app
 - [ ] User can friend loners
 - [ ] Restaurant recommandation from Yelp API
+
+## Schema
+
+* Map
+  * Geofencing
+  * Map pins denoting loners
+  * List of statues( i.e. "On the way to Mcdonald's, anybody wanna tag along? )
+* Loners
+  * Location
+  * Status (i.e. Going to lunch in 15)
+  * First Name
+  * Profile Image (if non-anonymous)
+  * Favorite food categories as tags (i.e. Chicken finger, Italian, melts, beer)
