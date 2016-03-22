@@ -8,13 +8,13 @@ Have you ever eaten lunch by yourself because of no friends? Meet other loners l
 
 The following are our core user stories:
 
-- [ ] User can post status to public
+- [ ] **User can post status to public**
+- [ ] **Status post has detail view**
+- [ ] **Geofencing**
+- [ ] **User can choose to remain anonymous**
 - [ ] User have profile setting page
-- [ ] User can choose to remain anonymous
 - [ ] User can view other loners on a map near him
-- [ ] Geofencing
 - [ ] User can view other loners on a table view
-- [ ] Status post has detail view
 - [ ] User can communicate with other loners in app
 - [ ] User can friend loners
 - [ ] Restaurant recommandation from Yelp API
