@@ -12,9 +12,11 @@
 		3818826D1C603940004C8A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3818826B1C603940004C8A56 /* Main.storyboard */; };
 		3818826F1C603940004C8A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3818826E1C603940004C8A56 /* Assets.xcassets */; };
 		381882721C603940004C8A56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381882701C603940004C8A56 /* LaunchScreen.storyboard */; };
+		B5ABBE05557401151E6C907B /* Pods_LunchWithMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchWithMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		381882641C603940004C8A56 /* LunchWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		381882671C603940004C8A56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		381882691C603940004C8A56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		3818826E1C603940004C8A56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		381882711C603940004C8A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		381882731C603940004C8A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98024D7CA96F304D1C154032 /* Pods-LunchWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWithMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe.debug.xcconfig"; sourceTree = "<group>"; };
+		A32F0F3D6B07BE2C4F7932BD /* Pods-LunchWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWithMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5ABBE05557401151E6C907B /* Pods_LunchWithMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15DE1F293601CDA7E0C0C60B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3818825B1C603940004C8A56 = {
 			isa = PBXGroup;
 			children = (
 				381882661C603940004C8A56 /* LunchWithMe */,
 				381882651C603940004C8A56 /* Products */,
+				C3A3C744730269D90D791277 /* Pods */,
+				15DE1F293601CDA7E0C0C60B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = LunchWithMe;
 			sourceTree = "<group>";
 		};
+		C3A3C744730269D90D791277 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98024D7CA96F304D1C154032 /* Pods-LunchWithMe.debug.xcconfig */,
+				A32F0F3D6B07BE2C4F7932BD /* Pods-LunchWithMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 381882761C603940004C8A56 /* Build configuration list for PBXNativeTarget "LunchWithMe" */;
 			buildPhases = (
+				0B5959F4AE4A84D45D1A811C /* Check Pods Manifest.lock */,
 				381882601C603940004C8A56 /* Sources */,
 				381882611C603940004C8A56 /* Frameworks */,
 				381882621C603940004C8A56 /* Resources */,
+				72BCD03B8FA12475F6D97279 /* Embed Pods Frameworks */,
+				941F3F1C8B7F982EC606C351 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B5959F4AE4A84D45D1A811C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		72BCD03B8FA12475F6D97279 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		941F3F1C8B7F982EC606C351 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		381882601C603940004C8A56 /* Sources */ = {
@@ -246,6 +321,7 @@
 		};
 		381882771C603940004C8A56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98024D7CA96F304D1C154032 /* Pods-LunchWithMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LunchWithMe/Info.plist;
@@ -257,6 +333,7 @@
 		};
 		381882781C603940004C8A56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A32F0F3D6B07BE2C4F7932BD /* Pods-LunchWithMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LunchWithMe/Info.plist;
@@ -285,6 +362,7 @@
 				381882781C603940004C8A56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
