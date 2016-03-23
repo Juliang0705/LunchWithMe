@@ -11,6 +11,7 @@
 		3818826D1C603940004C8A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3818826B1C603940004C8A56 /* Main.storyboard */; };
 		3818826F1C603940004C8A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3818826E1C603940004C8A56 /* Assets.xcassets */; };
 		381882721C603940004C8A56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381882701C603940004C8A56 /* LaunchScreen.storyboard */; };
+		3819DAB71CA2592200775939 /* LWUTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819DAB61CA2592200775939 /* LWUTabBarController.swift */; };
 		38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */; };
 		38F6CC2E1CA0D64E00CB2614 /* LWUSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2D1CA0D64E00CB2614 /* LWUSignInViewController.swift */; };
 		38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2F1CA0D82E00CB2614 /* warningView.swift */; };
@@ -25,6 +26,7 @@
 		3818826E1C603940004C8A56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		381882711C603940004C8A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		381882731C603940004C8A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3819DAB61CA2592200775939 /* LWUTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWUTabBarController.swift; sourceTree = "<group>"; };
 		38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUser.swift; sourceTree = "<group>"; };
 		38F6CC2D1CA0D64E00CB2614 /* LWUSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWUSignInViewController.swift; sourceTree = "<group>"; };
 		38F6CC2F1CA0D82E00CB2614 /* warningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = warningView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				38F6CC2D1CA0D64E00CB2614 /* LWUSignInViewController.swift */,
+				3819DAB61CA2592200775939 /* LWUTabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */,
 				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
 				38F6CC2E1CA0D64E00CB2614 /* LWUSignInViewController.swift in Sources */,
+				3819DAB71CA2592200775939 /* LWUTabBarController.swift in Sources */,
 				381882681C603940004C8A56 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,7 +46,7 @@ class LWUSignInViewController: UIViewController ,UITextFieldDelegate{
             } else {
                 print("User logged in successfully")
                 //@todo: change identifier
-              //  self.performSegueWithIdentifier("Entry", sender: self)
+                self.performSegueWithIdentifier("LWUSignIn", sender: self)
             }
         }
     }
