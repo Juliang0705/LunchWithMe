@@ -16,6 +16,7 @@
 		38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFC1CA39952000F8A7F /* LWMHomeViewController.swift */; };
 		38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */; };
 		38337F011CA39B9A000F8A7F /* LWMPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337F001CA39B9A000F8A7F /* LWMPostTableViewCell.swift */; };
+		38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337F021CA44DB1000F8A7F /* LWMPostComment.swift */; };
 		38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */; };
 		38F6CC2E1CA0D64E00CB2614 /* LWMSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */; };
 		38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2F1CA0D82E00CB2614 /* warningView.swift */; };
@@ -35,6 +36,7 @@
 		38337EFC1CA39952000F8A7F /* LWMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMHomeViewController.swift; sourceTree = "<group>"; };
 		38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUserViewController.swift; sourceTree = "<group>"; };
 		38337F001CA39B9A000F8A7F /* LWMPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostTableViewCell.swift; sourceTree = "<group>"; };
+		38337F021CA44DB1000F8A7F /* LWMPostComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostComment.swift; sourceTree = "<group>"; };
 		38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUser.swift; sourceTree = "<group>"; };
 		38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMSignInViewController.swift; sourceTree = "<group>"; };
 		38F6CC2F1CA0D82E00CB2614 /* warningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = warningView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */,
 				38337EFA1CA36C3F000F8A7F /* LWMPost.swift */,
+				38337F021CA44DB1000F8A7F /* LWMPostComment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				38337EFB1CA36C3F000F8A7F /* LWMPost.swift in Sources */,
 				38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */,
+				38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */,
 				38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */,
 				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
 				38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */,

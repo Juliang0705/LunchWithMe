@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MapKit
 import Parse
 
 class LWMPost: NSObject{
@@ -15,25 +14,28 @@ class LWMPost: NSObject{
     var location: PFGeoPoint
     var foodPlace: String
     var detail: String
-    var placeImage: UIImage?
     var anonymous: Bool
+    var postComments: [LWMPostComment]
+    var time: String
     
-    init(user: LWMUser, loc: PFGeoPoint, place: String, description: String,isAnonymous: Bool, placePicture: UIImage?){
+    init(user: LWMUser, loc: PFGeoPoint, place: String,when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
         lmwUser = user
         location = loc
         foodPlace = place
         detail = description
-        placeImage = placePicture
         anonymous = isAnonymous
+        postComments = comments
+        time = when
     }
     convenience init(object: PFObject?){
         let user = object?["lmwUser"] as! LWMUser
         let loc  = object?["location"] as! PFGeoPoint
         let place = object?["foodPlace"] as! String
         let description = object?["detail"] as! String
-        let placePicture = object?["placeImage"] as? UIImage
         let isAnonymous = object?["anonymous"] as! Bool
-        self.init(user: user,loc: loc,place: place, description: description,isAnonymous: isAnonymous, placePicture: placePicture)
+        let when = object?["time"] as! String
+        let comments = object?["postComments"] as! [LWMPostComment]
+        self.init(user: user,loc: loc,place: place, when: when, description: description,isAnonymous: isAnonymous, comments: comments)
     }
     
     class func postToParse(post post:LWMPost , completion:PFBooleanResultBlock?){
@@ -42,8 +44,9 @@ class LWMPost: NSObject{
         userObject["foodPlace"] = post.foodPlace
         userObject["detail"] = post.detail
         userObject["lmwUser"] = post.lmwUser
-        userObject["placeImage"] = post.placeImage
         userObject["anonymous"] = post.anonymous
+        userObject["postComments"] = post.postComments
+        userObject["time"] = post.time
         userObject.saveInBackgroundWithBlock(completion)
     }
     
@@ -61,6 +64,17 @@ class LWMPost: NSObject{
                 completion(nil,error)
             }
         }
+    }
+    
+    class func getPFFileFromImage(image: UIImage?) -> PFFile? {
+        // check if image is not nil
+        if let image = image {
+            // get image data and check if that is not nil
+            if let imageData = UIImagePNGRepresentation(image) {
+                return PFFile(name: "image.png", data: imageData)
+            }
+        }
+        return nil
     }
 
 }

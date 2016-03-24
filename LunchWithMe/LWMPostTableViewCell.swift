@@ -10,6 +10,11 @@ import UIKit
 
 class LWMPostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var foodPlace: UILabel!
+    @IBOutlet weak var time: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
