@@ -10,11 +10,11 @@ import Foundation
 import Parse
 
 class LWMPostComment: NSObject{
-    var lmwUser: LWMUser
+    var lwmUser: LWMUser
     var anonymous: Bool
     var content: String
     init(user:LWMUser, isAnonymous: Bool, comment: String){
-        lmwUser = user
+        lwmUser = user
         anonymous = isAnonymous
         content = comment
     }

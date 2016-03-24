@@ -1,17 +1,21 @@
 //
-//  LWUUserViewController.swift
+//  LWMPostComposeViewController.swift
 //  LunchWithMe
 //
-//  Created by Juliang Li on 3/23/16.
+//  Created by Santos Solorzano on 3/24/16.
 //  Copyright © 2016 Juliang. All rights reserved.
 //
 
 import UIKit
+import Parse
 
-class LWMUserViewController: UIViewController {
+class LWMPostComposeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
@@ -21,8 +25,13 @@ class LWMUserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onSuggest(sender: AnyObject) {
-        self.performSegueWithIdentifier("userSuggestSegue", sender: self)
+    @IBAction func suggestAction(sender: AnyObject) {
+        print("Hehe")
+        //postToParse(post:LWMPost , completion:PFBooleanResultBlock?)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     /*

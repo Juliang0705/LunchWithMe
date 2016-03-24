@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0437A9231CA48865000932A3 /* LWMPostComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437A9221CA48864000932A3 /* LWMPostComposeViewController.swift */; };
 		381882681C603940004C8A56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381882671C603940004C8A56 /* AppDelegate.swift */; };
 		3818826D1C603940004C8A56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3818826B1C603940004C8A56 /* Main.storyboard */; };
 		3818826F1C603940004C8A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3818826E1C603940004C8A56 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0437A9221CA48864000932A3 /* LWMPostComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostComposeViewController.swift; sourceTree = "<group>"; };
 		246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LunchWithMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		381882641C603940004C8A56 /* LunchWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		381882671C603940004C8A56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				3819DAB61CA2592200775939 /* LWMTabBarController.swift */,
 				38337EFC1CA39952000F8A7F /* LWMHomeViewController.swift */,
 				38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */,
+				0437A9221CA48864000932A3 /* LWMPostComposeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */,
 				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
 				38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */,
+				0437A9231CA48865000932A3 /* LWMPostComposeViewController.swift in Sources */,
 				38337F011CA39B9A000F8A7F /* LWMPostTableViewCell.swift in Sources */,
 				38F6CC2E1CA0D64E00CB2614 /* LWMSignInViewController.swift in Sources */,
 				3819DAB71CA2592200775939 /* LWMTabBarController.swift in Sources */,

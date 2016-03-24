@@ -10,7 +10,7 @@ import Foundation
 import Parse
 
 class LWMPost: NSObject{
-    var lmwUser:LWMUser
+    var lwmUser:LWMUser
     var location: PFGeoPoint
     var foodPlace: String
     var detail: String
@@ -19,7 +19,7 @@ class LWMPost: NSObject{
     var time: String
     
     init(user: LWMUser, loc: PFGeoPoint, place: String,when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
-        lmwUser = user
+        lwmUser = user
         location = loc
         foodPlace = place
         detail = description
@@ -43,7 +43,7 @@ class LWMPost: NSObject{
         userObject["location"] = post.location
         userObject["foodPlace"] = post.foodPlace
         userObject["detail"] = post.detail
-        userObject["lmwUser"] = post.lmwUser
+        userObject["lmwUser"] = post.lwmUser
         userObject["anonymous"] = post.anonymous
         userObject["postComments"] = post.postComments
         userObject["time"] = post.time

@@ -21,6 +21,9 @@ class LWMHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onSuggest(sender: AnyObject) {
+        self.performSegueWithIdentifier("homeSuggestSegue", sender: self)
+    }
 
     /*
     // MARK: - Navigation
