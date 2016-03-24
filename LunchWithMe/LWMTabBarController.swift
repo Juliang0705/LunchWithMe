@@ -8,11 +8,12 @@
 
 import UIKit
 
-class LWUTabBarController: UITabBarController {
+class LWMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabs()
+        
     }
     
     func setUpTabs(){

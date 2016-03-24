@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class LWUSignInViewController: UIViewController ,UITextFieldDelegate{
+class LWMSignInViewController: UIViewController ,UITextFieldDelegate{
 
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -20,8 +20,6 @@ class LWUSignInViewController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var signInButton: UIButton!
     
     @IBOutlet weak var signUpButton: UIButton!
-    
-    @IBOutlet weak var anonymousButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,10 +72,6 @@ class LWUSignInViewController: UIViewController ,UITextFieldDelegate{
                 self.signInAction(self.signUpButton)
             }
         }
-    }
-    
-    @IBAction func anonymousAction(sender: UIButton) {
-        
     }
     
     func dismissKeyboard() {

@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func detechCurrentUser(){
         if PFUser.currentUser() != nil {
             print("Detect current User: \(PFUser.currentUser()!.username!)")
-            let tabViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUTab") as! LWUTabBarController
+            let tabViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUTab") as! LWMTabBarController
             window?.rootViewController = tabViewController
             window?.makeKeyAndVisible()
         }

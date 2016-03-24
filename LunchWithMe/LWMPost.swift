@@ -16,13 +16,15 @@ class LWMPost: NSObject{
     var foodPlace: String
     var detail: String
     var placeImage: UIImage?
+    var anonymous: Bool
     
-    init(user: LWMUser, loc: PFGeoPoint, place: String, description: String, placePicture: UIImage?){
+    init(user: LWMUser, loc: PFGeoPoint, place: String, description: String,isAnonymous: Bool, placePicture: UIImage?){
         lmwUser = user
         location = loc
         foodPlace = place
         detail = description
         placeImage = placePicture
+        anonymous = isAnonymous
     }
     convenience init(object: PFObject?){
         let user = object?["lmwUser"] as! LWMUser
@@ -30,7 +32,8 @@ class LWMPost: NSObject{
         let place = object?["foodPlace"] as! String
         let description = object?["detail"] as! String
         let placePicture = object?["placeImage"] as? UIImage
-        self.init(user: user,loc: loc,place: place, description: description, placePicture: placePicture)
+        let isAnonymous = object?["anonymous"] as! Bool
+        self.init(user: user,loc: loc,place: place, description: description,isAnonymous: isAnonymous, placePicture: placePicture)
     }
     
     class func postToParse(post post:LWMPost , completion:PFBooleanResultBlock?){
@@ -40,6 +43,7 @@ class LWMPost: NSObject{
         userObject["detail"] = post.detail
         userObject["lmwUser"] = post.lmwUser
         userObject["placeImage"] = post.placeImage
+        userObject["anonymous"] = post.anonymous
         userObject.saveInBackgroundWithBlock(completion)
     }
     

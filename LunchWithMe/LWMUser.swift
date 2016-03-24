@@ -13,22 +13,18 @@ var currentUser: LWMUser?
 
 class LWMUser: NSObject {
     var username: String
-    var anonymous: Bool
     var parseUser: PFUser
-    init(user: PFUser, isAnonymous: Bool){
+    init(user: PFUser){
         parseUser = user
-        anonymous = isAnonymous
         username = user.username!
     }
     convenience init(object: PFObject?){
         let user = object?["parseUser"] as! PFUser
-        let isAnonymous = object?["anonymous"] as! Bool
-        self.init(user: user,isAnonymous: isAnonymous)
+        self.init(user: user)
     }
     class func postToParse(user user:LWMUser , completion:PFBooleanResultBlock?){
         let userObject = PFObject(className: "LWMUser")
         userObject["username"] = user.username
-        userObject["anonymous"] = user.anonymous
         userObject["parseUser"] = user.parseUser
         userObject.saveInBackgroundWithBlock(completion)
     }
