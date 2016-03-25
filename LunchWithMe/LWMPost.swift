@@ -38,7 +38,7 @@ class LWMPost: NSObject{
         self.init(user: user,loc: loc,place: place, when: when, description: description,isAnonymous: isAnonymous, comments: comments)
     }
     
-    class func postToParse(post post:LWMPost , completion:PFBooleanResultBlock?){
+    class func postToParse(post:LWMPost , withCompletion completion:PFBooleanResultBlock?){
         let userObject = PFObject(className: "LWMPost")
         userObject["location"] = post.location
         userObject["foodPlace"] = post.foodPlace

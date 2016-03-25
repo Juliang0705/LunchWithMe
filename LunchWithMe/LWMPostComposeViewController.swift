@@ -10,12 +10,30 @@ import UIKit
 import Parse
 
 class LWMPostComposeViewController: UIViewController {
-
+    
+    var post: LWMPost?
+    var user: LWMUser?
+    var location: PFGeoPoint?
+    var foodPlace: String?
+    var detail: String?
+    var anonymous: Bool?
+    var postComments: [LWMPostComment]?
+    var timeText: String?
+    
+    @IBOutlet weak var anonSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.post?.foodPlace = "Cane's"
+        self.post?.detail = "Cane's"
+        self.post?.postComments = []
+        self.post?.time = "12 PM"
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
+        
+        anonSwitch.addTarget(self, action: Selector("anonState:"), forControlEvents: UIControlEvents.ValueChanged)
 
         // Do any additional setup after loading the view.
     }
@@ -27,12 +45,30 @@ class LWMPostComposeViewController: UIViewController {
     
     @IBAction func suggestAction(sender: AnyObject) {
         print("Hehe")
-        //postToParse(post:LWMPost , completion:PFBooleanResultBlock?)
+        LWMPost.postToParse(post!) { (flag: Bool, error: NSError?) -> Void in
+            if error == nil {
+                print("LWMPost was successful!")
+            }
+            else {
+                print("error occurred \(error?.localizedDescription)")
+            }
+        }
     }
     
-    func dismissKeyboard() {
-        view.endEditing(true)
+    @IBAction func onCancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {});
     }
+    
+    @IBAction func anonState(sender: AnyObject) {
+        if anonSwitch.on {
+            print("I AM ON")
+            self.post!.anonymous = true
+        } else {
+            print("I AM OFF")
+            self.post!.anonymous = false
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
