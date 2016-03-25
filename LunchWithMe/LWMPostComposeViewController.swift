@@ -15,7 +15,7 @@ class LWMPostComposeViewController: UIViewController {
     var user: LWMUser?
     var location: PFGeoPoint?
     var foodPlace: String?
-    var detail: String?
+    var detail: String = "WHAT"
     var anonymous: Bool?
     var postComments: [LWMPostComment]?
     var timeText: String?
@@ -24,11 +24,7 @@ class LWMPostComposeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.post?.foodPlace = "Cane's"
-        self.post?.detail = "Cane's"
-        self.post?.postComments = []
-        self.post?.time = "12 PM"
+        print(detail)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
@@ -45,14 +41,14 @@ class LWMPostComposeViewController: UIViewController {
     
     @IBAction func suggestAction(sender: AnyObject) {
         print("Hehe")
-        LWMPost.postToParse(post!) { (flag: Bool, error: NSError?) -> Void in
-            if error == nil {
-                print("LWMPost was successful!")
-            }
-            else {
-                print("error occurred \(error?.localizedDescription)")
-            }
-        }
+//        LWMPost.postToParse(post!) { (flag: Bool, error: NSError?) -> Void in
+//            if error == nil {
+//                print("LWMPost was successful!")
+//            }
+//            else {
+//                print("error occurred \(error?.localizedDescription)")
+//            }
+//        }
     }
     
     @IBAction func onCancel(sender: AnyObject) {

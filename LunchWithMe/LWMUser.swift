@@ -22,7 +22,7 @@ class LWMUser: NSObject {
         let user = object?["parseUser"] as! PFUser
         self.init(user: user)
     }
-    class func postToParse(user user:LWMUser , completion:PFBooleanResultBlock?){
+    class func postToParse(user:LWMUser , withCompletion completion:PFBooleanResultBlock?){
         let userObject = PFObject(className: "LWMUser")
         userObject["username"] = user.username
         userObject["parseUser"] = user.parseUser

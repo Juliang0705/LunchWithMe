@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class LWMUserViewController: UIViewController {
 
@@ -24,7 +25,13 @@ class LWMUserViewController: UIViewController {
     @IBAction func onSuggest(sender: AnyObject) {
         self.performSegueWithIdentifier("userSuggestSegue", sender: self)
     }
-
+    
+    
+    @IBAction func onLogout(sender: AnyObject) {
+        PFUser.logOut()
+        NSNotificationCenter.defaultCenter().postNotificationName("userDidLogoutNotification", object: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

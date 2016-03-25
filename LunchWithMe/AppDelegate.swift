@@ -15,13 +15,13 @@ let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         initParse()
-        detechCurrentUser()
-        
+        detachCurrentUser()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: "userDidLogoutNotification", object: nil)
         
         return true
     }
@@ -36,13 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
     }
     
-    func detechCurrentUser(){
+    func detachCurrentUser(){
         if PFUser.currentUser() != nil {
             print("Detect current User: \(PFUser.currentUser()!.username!)")
             let tabViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUTab") as! LWMTabBarController
             window?.rootViewController = tabViewController
             window?.makeKeyAndVisible()
         }
+    }
+    
+    func userDidLogout() {
+        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("LoginVC") as! LWMSignInViewController
+        window?.rootViewController = vc
     }
     
     func applicationWillResignActive(application: UIApplication) {
