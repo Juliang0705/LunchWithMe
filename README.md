@@ -12,6 +12,9 @@ The following are our core user stories:
 - [ ] **Status post has detail view**
 - [ ] **Geofencing**
 - [ ] **User can choose to remain anonymous**
+- [X] User can sign up to create a new account using Parse authentication
+- [X] User can log in and log out of his or her account
+- [X] The current signed in user is persisted across app restarts
 - [ ] User have profile setting page
 - [ ] User can view other loners on a map near him
 - [ ] User can view other loners on a table view
