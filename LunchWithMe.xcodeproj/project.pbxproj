@@ -12,6 +12,8 @@
 		3818826F1C603940004C8A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3818826E1C603940004C8A56 /* Assets.xcassets */; };
 		381882721C603940004C8A56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 381882701C603940004C8A56 /* LaunchScreen.storyboard */; };
 		3819DAB71CA2592200775939 /* LWMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3819DAB61CA2592200775939 /* LWMTabBarController.swift */; };
+		382F8E1E1CA480250007D596 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382F8E1D1CA480250007D596 /* CoreLocation.framework */; };
+		382F8E201CA4823E0007D596 /* LWMNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F8E1F1CA4823E0007D596 /* LWMNotifications.swift */; };
 		38337EFB1CA36C3F000F8A7F /* LWMPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFA1CA36C3F000F8A7F /* LWMPost.swift */; };
 		38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFC1CA39952000F8A7F /* LWMHomeViewController.swift */; };
 		38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */; };
@@ -32,6 +34,8 @@
 		381882711C603940004C8A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		381882731C603940004C8A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3819DAB61CA2592200775939 /* LWMTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMTabBarController.swift; sourceTree = "<group>"; };
+		382F8E1D1CA480250007D596 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		382F8E1F1CA4823E0007D596 /* LWMNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMNotifications.swift; sourceTree = "<group>"; };
 		38337EFA1CA36C3F000F8A7F /* LWMPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPost.swift; sourceTree = "<group>"; };
 		38337EFC1CA39952000F8A7F /* LWMHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMHomeViewController.swift; sourceTree = "<group>"; };
 		38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUserViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				382F8E1E1CA480250007D596 /* CoreLocation.framework in Frameworks */,
 				B5ABBE05557401151E6C907B /* Pods_LunchWithMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +64,7 @@
 		15DE1F293601CDA7E0C0C60B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				382F8E1D1CA480250007D596 /* CoreLocation.framework */,
 				246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */,
 			);
 			name = Frameworks;
@@ -103,6 +109,7 @@
 				38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */,
 				38337EFA1CA36C3F000F8A7F /* LWMPost.swift */,
 				38337F021CA44DB1000F8A7F /* LWMPostComment.swift */,
+				382F8E1F1CA4823E0007D596 /* LWMNotifications.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -262,6 +269,7 @@
 				38337EFB1CA36C3F000F8A7F /* LWMPost.swift in Sources */,
 				38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */,
 				38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */,
+				382F8E201CA4823E0007D596 /* LWMNotifications.swift in Sources */,
 				38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */,
 				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
 				38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */,
