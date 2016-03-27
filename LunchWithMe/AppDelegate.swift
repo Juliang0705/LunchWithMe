@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         )
     }
     
-    func detechCurrentUser(){
+    func detachCurrentUser(){
         if PFUser.currentUser() != nil {
             print("Detect current User: \(PFUser.currentUser()!.username!)")
             let tabViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUTab") as! LWMTabBarController
