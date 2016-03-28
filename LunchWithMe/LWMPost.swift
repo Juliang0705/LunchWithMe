@@ -8,11 +8,13 @@
 
 import Foundation
 import Parse
+import CoreLocation
 
 class LWMPost: PFObject, PFSubclassing{
     @NSManaged var lwmUser:PFUser
     @NSManaged var location: PFGeoPoint
     @NSManaged var foodPlace: String
+    @NSManaged var address: String
     @NSManaged var detail: String
     @NSManaged var anonymous: Bool
     @NSManaged var postComments: [LWMPostComment]
@@ -34,30 +36,23 @@ class LWMPost: PFObject, PFSubclassing{
     }
 
     
-    init(user: PFUser, loc: PFGeoPoint, place: String,when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
+    init(user: PFUser, loc: CLLocation, placeName: String, addr : String, when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
         super.init()
         lwmUser = user
-        location = loc
-        foodPlace = place
+        location = PFGeoPoint(location: loc)
+        address = addr
+        foodPlace = placeName
         detail = description
         anonymous = isAnonymous
         postComments = comments
         time = when
     }
-//    convenience init(object: PFObject?){
-//        let user = object?["lmwUser"] as! PFUser
-//        let loc  = object?["location"] as! PFGeoPoint
-//        let place = object?["foodPlace"] as! String
-//        let description = object?["detail"] as! String
-//        let isAnonymous = object?["anonymous"] as! Bool
-//        let when = object?["time"] as! String
-//        let comments = object?["postComments"] as! [LWMPostComment]
-//        self.init(user: user,loc: loc,place: place, when: when, description: description,isAnonymous: isAnonymous, comments: comments)
-//    }
     
-    class func fetchFromParse(location: PFGeoPoint,withinMiles: Double,completion:([LWMPost]?,NSError?)->()){
+    class func fetchFromParse(location: CLLocation,withinMiles: Double,completion:([LWMPost]?,NSError?)->()){
         let query = PFQuery(className: "LWMPost")
-        query.whereKey("location", nearGeoPoint: location, withinMiles: withinMiles)
+        query.whereKey("location", nearGeoPoint: PFGeoPoint(location: location), withinMiles: withinMiles)
+        query.includeKey("lwmUser")
+        query.includeKey("postComments")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if (error == nil){
                 var posts:[LWMPost] = []

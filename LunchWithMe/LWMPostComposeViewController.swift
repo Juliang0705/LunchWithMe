@@ -58,7 +58,7 @@ class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func postAction(sender: UIButton) {
-        let post = LWMPost(user: PFUser.currentUser()!, loc: PFGeoPoint(location: LWMCurrentLocation), place: foodPlace.text!, when: time.text!, description: detail.text!, isAnonymous: anonSwitch.on, comments: [])
+        let post = LWMPost(user: PFUser.currentUser()!, loc: LWMCurrentLocation!, placeName: foodPlace.text!,addr: address.text!, when: time.text!, description: detail.text!, isAnonymous: anonSwitch.on, comments: [])
         post.saveInBackgroundWithBlock { (success, error) -> Void in
             if (success){
                 print("Posting succeeded")
@@ -66,7 +66,7 @@ class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
                 print("Posting failed\n\(error)")
             }
         }
-
+        onCancel(self)
     }
 
     /*

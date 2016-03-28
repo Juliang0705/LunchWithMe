@@ -34,11 +34,4 @@ class LWMPostComment: PFObject,PFSubclassing{
         return "LWMPostComment"
     }
     
-//    convenience init(object: PFObject?){
-//        let user = object?["lmwUser"] as! PFUser
-//        let isAnonymous  = object?["anonymous"] as! Bool
-//        let comment = object?["content"] as! String
-//        self.init(user: user, isAnonymous: isAnonymous , comment: comment)
-//    }
-    
 }
