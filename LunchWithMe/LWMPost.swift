@@ -9,16 +9,33 @@
 import Foundation
 import Parse
 
-class LWMPost: NSObject{
-    var lwmUser:LWMUser
-    var location: PFGeoPoint
-    var foodPlace: String
-    var detail: String
-    var anonymous: Bool
-    var postComments: [LWMPostComment]
-    var time: String
+class LWMPost: PFObject, PFSubclassing{
+    @NSManaged var lwmUser:PFUser
+    @NSManaged var location: PFGeoPoint
+    @NSManaged var foodPlace: String
+    @NSManaged var detail: String
+    @NSManaged var anonymous: Bool
+    @NSManaged var postComments: [LWMPostComment]
+    @NSManaged var time: String
     
-    init(user: LWMUser, loc: PFGeoPoint, place: String,when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
+    override init() {
+        super.init()
+    }
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
+    }
+    static func parseClassName() -> String{
+        return "LWMPost"
+    }
+
+    
+    init(user: PFUser, loc: PFGeoPoint, place: String,when: String, description: String,isAnonymous: Bool,comments: [LWMPostComment]){
+        super.init()
         lwmUser = user
         location = loc
         foodPlace = place
@@ -27,28 +44,16 @@ class LWMPost: NSObject{
         postComments = comments
         time = when
     }
-    convenience init(object: PFObject?){
-        let user = object?["lmwUser"] as! LWMUser
-        let loc  = object?["location"] as! PFGeoPoint
-        let place = object?["foodPlace"] as! String
-        let description = object?["detail"] as! String
-        let isAnonymous = object?["anonymous"] as! Bool
-        let when = object?["time"] as! String
-        let comments = object?["postComments"] as! [LWMPostComment]
-        self.init(user: user,loc: loc,place: place, when: when, description: description,isAnonymous: isAnonymous, comments: comments)
-    }
-    
-    class func postToParse(post:LWMPost , withCompletion completion:PFBooleanResultBlock?){
-        let userObject = PFObject(className: "LWMPost")
-        userObject["location"] = post.location
-        userObject["foodPlace"] = post.foodPlace
-        userObject["detail"] = post.detail
-        userObject["lmwUser"] = post.lwmUser
-        userObject["anonymous"] = post.anonymous
-        userObject["postComments"] = post.postComments
-        userObject["time"] = post.time
-        userObject.saveInBackgroundWithBlock(completion)
-    }
+//    convenience init(object: PFObject?){
+//        let user = object?["lmwUser"] as! PFUser
+//        let loc  = object?["location"] as! PFGeoPoint
+//        let place = object?["foodPlace"] as! String
+//        let description = object?["detail"] as! String
+//        let isAnonymous = object?["anonymous"] as! Bool
+//        let when = object?["time"] as! String
+//        let comments = object?["postComments"] as! [LWMPostComment]
+//        self.init(user: user,loc: loc,place: place, when: when, description: description,isAnonymous: isAnonymous, comments: comments)
+//    }
     
     class func fetchFromParse(location: PFGeoPoint,withinMiles: Double,completion:([LWMPost]?,NSError?)->()){
         let query = PFQuery(className: "LWMPost")
@@ -57,7 +62,7 @@ class LWMPost: NSObject{
             if (error == nil){
                 var posts:[LWMPost] = []
                 for object in objects!{
-                    posts.append(LWMPost(object: object))
+                    posts.append((object as? LWMPost)!)
                 }
                 completion(posts,nil)
             }else{

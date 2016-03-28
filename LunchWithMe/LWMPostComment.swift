@@ -9,20 +9,36 @@
 import Foundation
 import Parse
 
-class LWMPostComment: NSObject{
-    var lwmUser: LWMUser
-    var anonymous: Bool
-    var content: String
-    init(user:LWMUser, isAnonymous: Bool, comment: String){
+class LWMPostComment: PFObject,PFSubclassing{
+    @NSManaged var lwmUser: PFUser
+    @NSManaged var anonymous: Bool
+    @NSManaged var content: String
+    override init(){
+        super.init()
+    }
+    init(user:PFUser, isAnonymous: Bool, comment: String){
+        super.init()
         lwmUser = user
         anonymous = isAnonymous
         content = comment
     }
-    convenience init(object: PFObject?){
-        let user = object?["lmwUser"] as! LWMUser
-        let isAnonymous  = object?["anonymous"] as! Bool
-        let comment = object?["content"] as! String
-        self.init(user: user, isAnonymous: isAnonymous , comment: comment)
+    override class func initialize() {
+        struct Static {
+            static var onceToken : dispatch_once_t = 0;
+        }
+        dispatch_once(&Static.onceToken) {
+            self.registerSubclass()
+        }
     }
+    static func parseClassName() -> String{
+        return "LWMPostComment"
+    }
+    
+//    convenience init(object: PFObject?){
+//        let user = object?["lmwUser"] as! PFUser
+//        let isAnonymous  = object?["anonymous"] as! Bool
+//        let comment = object?["content"] as! String
+//        self.init(user: user, isAnonymous: isAnonymous , comment: comment)
+//    }
     
 }

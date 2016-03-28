@@ -9,62 +9,65 @@
 import UIKit
 import Parse
 
-class LWMPostComposeViewController: UIViewController {
+class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
     
-    var post: LWMPost?
-    var user: LWMUser?
-    var location: PFGeoPoint?
-    var foodPlace: String?
-    var detail: String = "WHAT"
-    var anonymous: Bool?
-    var postComments: [LWMPostComment]?
-    var timeText: String?
+//    var post: LWMPost?
+//    var user: LWMUser?
+//    var location: PFGeoPoint?
+//    var foodPlace: String?
+//    var detail: String = "WHAT"
+//    var anonymous: Bool?
+//    var postComments: [LWMPostComment]?
+//    var timeText: String?
+    
+    @IBOutlet weak var foodPlace: UITextField!
+    
+    @IBOutlet weak var address: UITextField!
+    
+    @IBOutlet weak var time: UITextField!
+    
+    @IBOutlet weak var detail: UITextField!
     
     @IBOutlet weak var anonSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(detail)
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
-        
-        anonSwitch.addTarget(self, action: Selector("anonState:"), forControlEvents: UIControlEvents.ValueChanged)
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        initGUI()
     }
     
-    @IBAction func suggestAction(sender: AnyObject) {
-        print("Hehe")
-//        LWMPost.postToParse(post!) { (flag: Bool, error: NSError?) -> Void in
-//            if error == nil {
-//                print("LWMPost was successful!")
-//            }
-//            else {
-//                print("error occurred \(error?.localizedDescription)")
-//            }
-//        }
+    func initGUI(){
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        foodPlace.delegate = self
+        address.delegate = self
+        time.delegate = self
+        detail.delegate = self
+    }
+
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
     
     @IBAction func onCancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {});
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func anonState(sender: AnyObject) {
-        if anonSwitch.on {
-            print("I AM ON")
-            self.post!.anonymous = true
-        } else {
-            print("I AM OFF")
-            self.post!.anonymous = false
+    @IBAction func postAction(sender: UIButton) {
+        let post = LWMPost(user: PFUser.currentUser()!, loc: PFGeoPoint(location: LWMCurrentLocation), place: foodPlace.text!, when: time.text!, description: detail.text!, isAnonymous: anonSwitch.on, comments: [])
+        post.saveInBackgroundWithBlock { (success, error) -> Void in
+            if (success){
+                print("Posting succeeded")
+            }else{
+                print("Posting failed\n\(error)")
+            }
         }
+
     }
-    
 
     /*
     // MARK: - Navigation

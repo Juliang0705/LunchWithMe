@@ -20,7 +20,6 @@
 		38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */; };
 		38337F011CA39B9A000F8A7F /* LWMPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337F001CA39B9A000F8A7F /* LWMPostTableViewCell.swift */; };
 		38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38337F021CA44DB1000F8A7F /* LWMPostComment.swift */; };
-		38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */; };
 		38F6CC2E1CA0D64E00CB2614 /* LWMSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */; };
 		38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2F1CA0D82E00CB2614 /* warningView.swift */; };
 		B5ABBE05557401151E6C907B /* Pods_LunchWithMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */; };
@@ -43,7 +42,6 @@
 		38337EFE1CA3999A000F8A7F /* LWMUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUserViewController.swift; sourceTree = "<group>"; };
 		38337F001CA39B9A000F8A7F /* LWMPostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostTableViewCell.swift; sourceTree = "<group>"; };
 		38337F021CA44DB1000F8A7F /* LWMPostComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostComment.swift; sourceTree = "<group>"; };
-		38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUser.swift; sourceTree = "<group>"; };
 		38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMSignInViewController.swift; sourceTree = "<group>"; };
 		38F6CC2F1CA0D82E00CB2614 /* warningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = warningView.swift; sourceTree = "<group>"; };
 		98024D7CA96F304D1C154032 /* Pods-LunchWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWithMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 		38F6CC281CA0D39900CB2614 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38F6CC2B1CA0D42400CB2614 /* LWMUser.swift */,
 				38337EFA1CA36C3F000F8A7F /* LWMPost.swift */,
 				38337F021CA44DB1000F8A7F /* LWMPostComment.swift */,
 				382F8E1F1CA4823E0007D596 /* LWMNotifications.swift */,
@@ -273,7 +270,6 @@
 				38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */,
 				38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */,
 				382F8E201CA4823E0007D596 /* LWMNotifications.swift in Sources */,
-				38F6CC2C1CA0D42400CB2614 /* LWMUser.swift in Sources */,
 				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
 				38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */,
 				0437A9231CA48865000932A3 /* LWMPostComposeViewController.swift in Sources */,

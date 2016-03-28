@@ -17,19 +17,10 @@ class LWMUserViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func onSuggest(sender: AnyObject) {
-        self.performSegueWithIdentifier("userSuggestSegue", sender: self)
-    }
-    
     
     @IBAction func onLogout(sender: AnyObject) {
         PFUser.logOut()
-        NSNotificationCenter.defaultCenter().postNotificationName("userDidLogoutNotification", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(LWMNotification.UserDidLogOut, object: nil)
     }
     
     /*

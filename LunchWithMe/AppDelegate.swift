@@ -11,7 +11,7 @@ import Parse
 import CoreLocation
 
 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
+var LWMCurrentLocation: CLLocation?
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
@@ -23,9 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         
         initParse()
         initLocationManager()
-        detechCurrentUser()
-        
+        detectCurrentUser()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogOut", name: LWMNotification.UserDidLogOut, object: nil)
         return true
+    }
+    
+    func userDidLogOut(){
+        let signInViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWMLogIn") as! LWMSignInViewController
+        window?.rootViewController = signInViewController
     }
     
     func initParse(){
@@ -38,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         )
     }
     
-    func detachCurrentUser(){
+    func detectCurrentUser(){
         if PFUser.currentUser() != nil {
             print("Detect current User: \(PFUser.currentUser()!.username!)")
             let tabViewController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUTab") as! LWMTabBarController
@@ -51,12 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         let interval:NSTimeInterval = location.timestamp.timeIntervalSinceNow
         if abs(interval) < 60{
+            LWMCurrentLocation = location
             NSNotificationCenter.defaultCenter().postNotificationName(LWMNotification.LocationDidUpdate, object: self, userInfo: [LWMNotification.LocationDidUpdate:location])
             locationManager.stopUpdatingLocation()
         }

@@ -10,4 +10,5 @@ import Foundation
 
 class LWMNotification{
     static let LocationDidUpdate = "LocationDidUpdate"
+    static let UserDidLogOut = "UserDidLogOut"
 }

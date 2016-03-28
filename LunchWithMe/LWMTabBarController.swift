@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Parse
 
 class LWMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTabs()
-        
     }
     
     func setUpTabs(){
