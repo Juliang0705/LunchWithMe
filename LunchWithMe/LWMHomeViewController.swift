@@ -13,6 +13,7 @@ import Parse
 class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var postViewMode: UISegmentedControl!
     var posts:[LWMPost]?
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func initGUI(){
         tableView.dataSource = self
         tableView.delegate = self
+        postViewMode.addTarget(self, action: "postViewModeDidChange:", forControlEvents: .ValueChanged)
     }
     
     func updatePosts(){
@@ -42,14 +44,14 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 }
             })
             
+        }else{
+            print("No data due to no location")
         }
     }
     
     func monitorLocation(){
         NSNotificationCenter.defaultCenter().addObserverForName(LWMNotification.LocationDidUpdate, object: nil, queue: NSOperationQueue.mainQueue()) {(notification) -> Void in
-            
-         //   let location = notification.userInfo![LWMNotification.LocationDidUpdate] as! CLLocation
-            self.updatePosts()
+                self.updatePosts()
         }
     }
     
@@ -63,27 +65,26 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let LWMPostCell = tableView.dequeueReusableCellWithIdentifier("LWMPostTableViewCell", forIndexPath: indexPath) as! LWMPostTableViewCell
-        let post = posts![indexPath.row]
-        if post.anonymous{
-            LWMPostCell.username.text = "Anonymous"
-        }else{
-            LWMPostCell.username.text = post.lwmUser.username!
-        }
-        LWMPostCell.location.text = post.address
-        LWMPostCell.foodPlace.text = post.foodPlace
-        LWMPostCell.time.text = post.time
-        
+        LWMPostCell.post = posts![indexPath.row]
         return LWMPostCell
     }
     
-    /*
+    func postViewModeDidChange(segmentView: UISegmentedControl){
+        print(segmentView.selectedSegmentIndex)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let postDetailViewController = segue.destinationViewController as? LWMPostDetailViewController{
+            if let cell = sender as? LWMPostTableViewCell{
+                postDetailViewController.post = cell.post
+            }
+        }
     }
-    */
 
 }

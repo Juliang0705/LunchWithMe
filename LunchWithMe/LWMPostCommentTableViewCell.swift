@@ -1,32 +1,29 @@
 //
-//  LWMPostTableViewCell.swift
+//  LWMPostCommentTableViewCell.swift
 //  LunchWithMe
 //
-//  Created by Juliang Li on 3/23/16.
+//  Created by Juliang Li on 3/28/16.
 //  Copyright © 2016 Juliang. All rights reserved.
 //
 
 import UIKit
 
-class LWMPostTableViewCell: UITableViewCell {
+class LWMPostCommentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var foodPlace: UILabel!
+    @IBOutlet weak var content: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var createdTime: UILabel!
-    var post:LWMPost?{
+    
+    var postComment:LWMPostComment?{
         didSet{
-            if let post = post{
-                if post.anonymous{
+            if let postComment = postComment{
+                if postComment.anonymous{
                     username.text = "Anonymous"
                 }else{
-                    username.text = post.lwmUser.username!
+                    username.text = postComment.lwmUser.username
                 }
-                location.text = post.address
-                foodPlace.text = post.foodPlace
-                time.text = post.time
-                createdTime.text = post.createdAt!.shortDate
+                content.text = postComment.content
+                time.text = postComment.createdAt!.timePassedSinceCreated
             }
         }
     }
@@ -40,6 +37,5 @@ class LWMPostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 
 }
