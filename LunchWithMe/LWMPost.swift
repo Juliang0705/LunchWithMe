@@ -51,7 +51,7 @@ class LWMPost: PFObject, PFSubclassing{
     class func fetchFromParse(location: CLLocation,withinMiles: Double,completion:([LWMPost]?,NSError?)->()){
         let query = PFQuery(className: "LWMPost")
         query.whereKey("location", nearGeoPoint: PFGeoPoint(location: location), withinMiles: withinMiles)
-        query.orderByAscending("created_at")
+        query.orderByDescending("createdAt")
         query.includeKey("lwmUser")
         query.includeKey("postComments")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in

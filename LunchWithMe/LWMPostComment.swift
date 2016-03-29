@@ -16,9 +16,9 @@ class LWMPostComment: PFObject,PFSubclassing{
     override init(){
         super.init()
     }
-    init(user:PFUser, isAnonymous: Bool, comment: String){
+    init(isAnonymous: Bool, comment: String){
         super.init()
-        lwmUser = user
+        lwmUser = PFUser.currentUser()!
         anonymous = isAnonymous
         content = comment
     }

@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     }
     
     func initParse(){
+        LWMPostComment.registerSubclass()
+        LWMPost.registerSubclass()
         Parse.initializeWithConfiguration(
             ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "e4dfrt67gvrctbvtf"
