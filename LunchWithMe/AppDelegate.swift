@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         initParse()
         initLocationManager()
         detectCurrentUser()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogOut", name: LWMNotification.UserDidLogOut, object: nil)
+        initObservers()
         return true
     }
     
@@ -53,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             window?.makeKeyAndVisible()
         }
     }
+    func initObservers(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogOut", name: LWMNotification.UserDidLogOut, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "locationNeedUpdate", name: LWMNotification.LocationNeedUpdate, object: nil)
+    }
     
     func initLocationManager(){
         locationManager.delegate = self
@@ -60,7 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
-    
+    func locationNeedUpdate(){
+        locationManager.startUpdatingLocation()
+    }
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         let interval:NSTimeInterval = location.timestamp.timeIntervalSinceNow

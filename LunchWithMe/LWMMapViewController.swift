@@ -15,10 +15,48 @@ class LWMMapViewController: UIViewController, MGLMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initGUI()
+        centerUserPostion() // check if location data is available now
+        monitorLocation()
     }
     
     func initGUI(){
         mapView.delegate = self
+        showPostsOnMap()
+    }
+    
+    func monitorLocation(){
+        NSNotificationCenter.defaultCenter().addObserverForName(LWMNotification.LocationDidUpdate, object: nil, queue: NSOperationQueue.mainQueue()) {(notification) -> Void in
+            self.centerUserPostion()
+        }
+    }
+    
+    func centerUserPostion(){
+        if let location = LWMCurrentLocation{
+            mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                longitude: location.coordinate.longitude),
+                zoomLevel: 12, animated: false)
+        }
+    }
+    
+    func showPostsOnMap(){
+        if let posts = LWMSharedposts{
+            for post in posts{
+                let point = MGLPointAnnotation()
+                point.coordinate = CLLocationCoordinate2D(latitude: post.location.latitude, longitude: post.location.longitude)
+                if post.anonymous{
+                    point.title = "Anonymous"
+                }else{
+                    point.title = post.lwmUser.username!
+                }
+                point.subtitle = post.foodPlace
+                mapView.addAnnotation(point)
+            }
+        }
+    }
+    
+    func mapView(mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
     }
     
 

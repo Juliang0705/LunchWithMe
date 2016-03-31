@@ -10,11 +10,13 @@ import UIKit
 import CoreLocation
 import Parse
 
+
+var LWMSharedposts:[LWMPost]?
+
 class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var postViewMode: UISegmentedControl!
-    var posts:[LWMPost]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
             LWMPost.fetchFromParse(location, withinMiles: 20, completion: { (posts, error) -> () in
                 if (error == nil){
                     print("Loading succeed with \(posts?.count) posts")
-                    self.posts = posts
+                    LWMSharedposts = posts
                     self.tableView.reloadData()
                 }else{
                     print("Error: \(error)")
@@ -56,7 +58,7 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let posts = posts{
+        if let posts = LWMSharedposts{
             return posts.count
         }else{
             return 0
@@ -65,7 +67,7 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let LWMPostCell = tableView.dequeueReusableCellWithIdentifier("LWMPostTableViewCell", forIndexPath: indexPath) as! LWMPostTableViewCell
-        LWMPostCell.post = posts![indexPath.row]
+        LWMPostCell.post = LWMSharedposts![indexPath.row]
         return LWMPostCell
     }
     

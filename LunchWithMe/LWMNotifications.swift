@@ -11,4 +11,8 @@ import Foundation
 class LWMNotification{
     static let LocationDidUpdate = "LocationDidUpdate"
     static let UserDidLogOut = "UserDidLogOut"
+    static let LocationNeedUpdate = "LocationNeedUpdate"
+    class func requestLocationUpdate(){
+        NSNotificationCenter.defaultCenter().postNotificationName(LWMNotification.LocationNeedUpdate, object: self)
+    }
 }

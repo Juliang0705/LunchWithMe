@@ -197,9 +197,9 @@
 		38F6CC2A1CA0D3A900CB2614 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3896A9B21CAA09B90010155D /* SignIn */,
 				3896A9B01CAA09890010155D /* Home */,
 				38AF7C941CAC933C006C43A5 /* Map */,
-				3896A9B21CAA09B90010155D /* SignIn */,
 				3896A9B11CAA09A90010155D /* User */,
 			);
 			name = Controllers;

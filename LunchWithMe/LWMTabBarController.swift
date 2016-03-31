@@ -58,7 +58,7 @@ class LWMTabBarController: UITabBarController {
         let userViewController = userNavigationController?.topViewController
         userViewController?.title = "Me"
         
-        userNavigationController?.tabBarItem.title = "User"
+        userNavigationController?.tabBarItem.title = "Me"
      //   userNavigationController?.tabBarItem.image = UIImage(named: "user")
         //------------------------------------------------------------------------------
         
