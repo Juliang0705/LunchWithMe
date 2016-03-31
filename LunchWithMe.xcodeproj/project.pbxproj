@@ -24,8 +24,9 @@
 		3896A9AF1CAA030B0010155D /* LWMExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896A9AE1CAA030B0010155D /* LWMExtension.swift */; };
 		3896A9B41CAA0A2E0010155D /* LWMPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896A9B31CAA0A2E0010155D /* LWMPostDetailViewController.swift */; };
 		3896A9B71CAA0BED0010155D /* LWMPostCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896A9B61CAA0BED0010155D /* LWMPostCommentTableViewCell.swift */; };
+		38AF7C961CAC9353006C43A5 /* LWMMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AF7C951CAC9353006C43A5 /* LWMMapViewController.swift */; };
 		38F6CC2E1CA0D64E00CB2614 /* LWMSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */; };
-		38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2F1CA0D82E00CB2614 /* warningView.swift */; };
+		38F6CC301CA0D82E00CB2614 /* LWMUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6CC2F1CA0D82E00CB2614 /* LWMUtility.swift */; };
 		B5ABBE05557401151E6C907B /* Pods_LunchWithMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 246FD51D40933B92112C6CD9 /* Pods_LunchWithMe.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +51,9 @@
 		3896A9AE1CAA030B0010155D /* LWMExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMExtension.swift; sourceTree = "<group>"; };
 		3896A9B31CAA0A2E0010155D /* LWMPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostDetailViewController.swift; sourceTree = "<group>"; };
 		3896A9B61CAA0BED0010155D /* LWMPostCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMPostCommentTableViewCell.swift; sourceTree = "<group>"; };
+		38AF7C951CAC9353006C43A5 /* LWMMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMMapViewController.swift; sourceTree = "<group>"; };
 		38F6CC2D1CA0D64E00CB2614 /* LWMSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMSignInViewController.swift; sourceTree = "<group>"; };
-		38F6CC2F1CA0D82E00CB2614 /* warningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = warningView.swift; sourceTree = "<group>"; };
+		38F6CC2F1CA0D82E00CB2614 /* LWMUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LWMUtility.swift; sourceTree = "<group>"; };
 		98024D7CA96F304D1C154032 /* Pods-LunchWithMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWithMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe.debug.xcconfig"; sourceTree = "<group>"; };
 		A32F0F3D6B07BE2C4F7932BD /* Pods-LunchWithMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LunchWithMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-LunchWithMe/Pods-LunchWithMe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 		3896A9AD1CAA02EF0010155D /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				38F6CC2F1CA0D82E00CB2614 /* LWMUtility.swift */,
 				3896A9AE1CAA030B0010155D /* LWMExtension.swift */,
 			);
 			name = Others;
@@ -157,6 +160,21 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		38AF7C941CAC933C006C43A5 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				38AF7C951CAC9353006C43A5 /* LWMMapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		38AF7C971CAC9362006C43A5 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		38F6CC281CA0D39900CB2614 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				3896A9B51CAA0BAE0010155D /* Home */,
-				38F6CC2F1CA0D82E00CB2614 /* warningView.swift */,
+				38AF7C971CAC9362006C43A5 /* Map */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -180,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				3896A9B01CAA09890010155D /* Home */,
+				38AF7C941CAC933C006C43A5 /* Map */,
 				3896A9B21CAA09B90010155D /* SignIn */,
 				3896A9B11CAA09A90010155D /* User */,
 			);
@@ -320,10 +339,11 @@
 			files = (
 				38337EFB1CA36C3F000F8A7F /* LWMPost.swift in Sources */,
 				38337EFD1CA39952000F8A7F /* LWMHomeViewController.swift in Sources */,
+				38AF7C961CAC9353006C43A5 /* LWMMapViewController.swift in Sources */,
 				38337F031CA44DB1000F8A7F /* LWMPostComment.swift in Sources */,
 				382F8E201CA4823E0007D596 /* LWMNotifications.swift in Sources */,
 				3896A9B71CAA0BED0010155D /* LWMPostCommentTableViewCell.swift in Sources */,
-				38F6CC301CA0D82E00CB2614 /* warningView.swift in Sources */,
+				38F6CC301CA0D82E00CB2614 /* LWMUtility.swift in Sources */,
 				380EA38B1CAA37B900C98E7A /* LWMPostDetailView.swift in Sources */,
 				38337EFF1CA3999A000F8A7F /* LWMUserViewController.swift in Sources */,
 				3896A9AF1CAA030B0010155D /* LWMExtension.swift in Sources */,

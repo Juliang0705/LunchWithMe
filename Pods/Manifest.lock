@@ -1,13 +1,16 @@
 PODS:
   - Bolts/Tasks (1.6.0)
+  - Mapbox-iOS-SDK (3.1.2)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
 
 DEPENDENCIES:
+  - Mapbox-iOS-SDK (~> 3.1.2)
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  Mapbox-iOS-SDK: 0a910c2cce1aa8cff5b9ec2a990e7a32332a776a
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
 
 COCOAPODS: 0.39.0

@@ -17,7 +17,7 @@ class LWMTabBarController: UITabBarController {
     }
     
     func setUpTabs(){
-        let homeScreenNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUHome") as? UINavigationController
+        let homeScreenNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWMHome") as? UINavigationController
         
         let homeScreenViewController = homeScreenNavigationController?.topViewController
         homeScreenViewController?.title = "Home"
@@ -53,16 +53,22 @@ class LWMTabBarController: UITabBarController {
 //        
 //        //------------------------------------------------------------------------------
         
-        let userNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWUUser") as? UINavigationController
+        let userNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWMUser") as? UINavigationController
         
         let userViewController = userNavigationController?.topViewController
         userViewController?.title = "Me"
         
         userNavigationController?.tabBarItem.title = "User"
-        userNavigationController?.tabBarItem.image = UIImage(named: "user")
+     //   userNavigationController?.tabBarItem.image = UIImage(named: "user")
         //------------------------------------------------------------------------------
-     //   self.viewControllers = [homeScreenNavigationController!,searchNavigationController!,cameraNavigationController!,activityNavigationController!,userNavigationController!]
-        self.viewControllers = [homeScreenNavigationController!,userNavigationController!]
+        
+        let mapNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWMMap") as? UINavigationController
+        let mapViewController = userNavigationController?.topViewController
+        mapViewController?.title = "Map"
+        
+        mapNavigationController?.tabBarItem.title = "Map"
+        
+        self.viewControllers = [homeScreenNavigationController!,mapNavigationController!,userNavigationController!]
         
     }
 

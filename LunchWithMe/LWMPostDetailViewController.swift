@@ -33,13 +33,6 @@ class LWMPostDetailViewController: UIViewController,UITextFieldDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         initGUI()
-        if let post = post{
-            for comment in post.postComments{
-                if (try? comment.lwmUser.fetchIfNeeded()) == nil{
-                    print("fetching LWMUser failed")
-                }
-            }
-        }
         postCommentTableView.reloadData()
     }
     override func viewWillAppear(animated: Bool) {
@@ -126,10 +119,10 @@ class LWMPostDetailViewController: UIViewController,UITextFieldDelegate, UITable
     
     @IBAction func sendButtonClicked(sender: UIButton) {
         post?.postComments.append(LWMPostComment(isAnonymous: commentAnonSwitch.on, comment: commentTextField.text!))
+        dismissKeyboard()
         post?.saveInBackgroundWithBlock({ (success, error) -> Void in
             if error == nil{
                 print("Adding Comment Succeeded")
-                self.dismissKeyboard()
                 self.commentTextField.text = ""
                 self.commentWordCount.text = "100"
                 self.postCommentTableView.reloadData()

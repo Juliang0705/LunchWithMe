@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoibHVuY2h3aXRobWUiLCJhIjoiY2ltZmdkY2thMDFmd3ZnbTZrZ2JxeWZtdiJ9.JGkIxCYgy2EI34NPUlIJdA</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -22,8 +24,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>LunchWithMe needs to know your location to find other loners</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>LunchWithMe needs to know your location to find other loners</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

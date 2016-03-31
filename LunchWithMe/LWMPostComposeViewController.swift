@@ -11,14 +11,6 @@ import Parse
 
 class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
     
-//    var post: LWMPost?
-//    var user: LWMUser?
-//    var location: PFGeoPoint?
-//    var foodPlace: String?
-//    var detail: String = "WHAT"
-//    var anonymous: Bool?
-//    var postComments: [LWMPostComment]?
-//    var timeText: String?
     
     @IBOutlet weak var foodPlace: UITextField!
     

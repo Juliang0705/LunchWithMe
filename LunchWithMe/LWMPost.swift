@@ -54,6 +54,8 @@ class LWMPost: PFObject, PFSubclassing{
         query.orderByDescending("createdAt")
         query.includeKey("lwmUser")
         query.includeKey("postComments")
+        query.includeKey("postComments.lwmUser")
+        query.limit = 50
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if (error == nil){
                 var posts:[LWMPost] = []
