@@ -22,6 +22,7 @@ class LWMHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidLoad()
         initGUI()
         monitorLocation()
+        LWMNotification.requestLocationUpdate()
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

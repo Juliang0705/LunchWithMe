@@ -63,7 +63,7 @@ class LWMTabBarController: UITabBarController {
         //------------------------------------------------------------------------------
         
         let mapNavigationController = mainStoryboard.instantiateViewControllerWithIdentifier("LWMMap") as? UINavigationController
-        let mapViewController = userNavigationController?.topViewController
+        let mapViewController = mapNavigationController?.topViewController
         mapViewController?.title = "Map"
         
         mapNavigationController?.tabBarItem.title = "Map"

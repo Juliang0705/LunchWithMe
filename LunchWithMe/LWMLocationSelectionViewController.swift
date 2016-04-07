@@ -108,8 +108,7 @@ class LWMLocationSelectionViewController: UIViewController, MGLMapViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let annotation = sender as? MGLAnnotation{
             if let postComposeViewController = segue.destinationViewController as? LWMPostComposeViewController{
-                let coordinate = CLLocation(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-                postComposeViewController.selectedLocation = coordinate
+                postComposeViewController.selectedAnnotation = annotation
             }
         }
     }

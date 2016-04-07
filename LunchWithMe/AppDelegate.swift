@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
+     //   locationManager.startUpdatingLocation()
     }
     func locationNeedUpdate(){
         locationManager.startUpdatingLocation()

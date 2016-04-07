@@ -157,7 +157,7 @@
                                             <outlet property="location" destination="N1h-UC-ytD" id="kKM-cb-Ygg"/>
                                             <outlet property="time" destination="OlS-Uz-P38" id="ShQ-ae-VNr"/>
                                             <outlet property="username" destination="FcN-9R-fB0" id="xjL-Sq-cmS"/>
-                                            <segue destination="U9L-1r-s5C" kind="show" id="ofQ-i1-7GU"/>
+                                            <segue destination="U9L-1r-s5C" kind="show" identifier="" id="ofQ-i1-7GU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -235,7 +235,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-og-YSQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8u-og-YSQ">
                                 <rect key="frame" x="0.0" y="103" width="414" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -474,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0L-4t-W07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="344" y="2106"/>
+            <point key="canvasLocation" x="468" y="2146"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="cnW-6c-xwY">
@@ -531,6 +531,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="mapView" destination="npa-Ge-8gh" id="gMq-bN-3Oq"/>
+                        <segue destination="U9L-1r-s5C" kind="show" identifier="LWMPostDetail" id="YTa-Np-UU7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NK-B3-xb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -595,4 +596,7 @@
             <point key="canvasLocation" x="-902" y="2152"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="YTa-Np-UU7"/>
+    </inferredMetricsTieBreakers>
 </document>

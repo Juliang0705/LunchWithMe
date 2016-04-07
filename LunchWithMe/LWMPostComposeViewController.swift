@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Mapbox
 import Parse
 
 class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
     
-    var selectedLocation: CLLocation?
+    var selectedAnnotation: MGLAnnotation?
     
     @IBOutlet weak var foodPlace: UITextField!
     
@@ -35,6 +36,8 @@ class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
         address.delegate = self
         time.delegate = self
         detail.delegate = self
+        address.text = "\((selectedAnnotation!.title!)!), \((selectedAnnotation!.subtitle!)!)"
+        
     }
 
     func dismissKeyboard() {
@@ -52,7 +55,8 @@ class LWMPostComposeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func postAction(sender: UIButton) {
-        let post = LWMPost(user: PFUser.currentUser()!, loc: selectedLocation!, placeName: foodPlace.text!,addr: address.text!, when: time.text!, description: detail.text!, isAnonymous: anonSwitch.on, comments: [])
+        let selectedLocation = CLLocation(latitude: selectedAnnotation!.coordinate.latitude, longitude: selectedAnnotation!.coordinate.longitude)
+        let post = LWMPost(user: PFUser.currentUser()!, loc: selectedLocation, placeName: foodPlace.text!,addr: address.text!, when: time.text!, description: detail.text!, isAnonymous: anonSwitch.on, comments: [])
         post.saveInBackgroundWithBlock { (success, error) -> Void in
             if (success){
                 print("Posting succeeded")
